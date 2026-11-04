@@ -3,116 +3,375 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#151515">
+<meta name="description" content="Garimpo Esperto: achadinhos, acessórios para celular e produtos para sua casa. Confira nossas ofertas!">
 <title>Garimpo Esperto | Achadinhos que valem a pena</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#111;color:#fff;font-family:Arial,sans-serif}
-header{padding:24px 5%;background:#080808;border-bottom:4px solid #ffd21a}
-.logo{font-size:26px;font-weight:900}
-.logo span{color:#ffd21a}
-.hero{padding:45px 5%;background:#ffd21a;color:#111}
-.hero h1{font-size:38px;margin:0 0 12px}
-.hero p{font-size:17px}
-main{max-width:1100px;margin:auto;padding:25px 5%}
-input,select{padding:12px;border-radius:8px;border:1px solid #ccc;margin:5px 5px 20px 0}
-input{width:60%;max-width:400px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{background:#222;border:1px solid #444;border-radius:12px;padding:18px}
-.icon{font-size:45px}
-.card h3{margin-bottom:8px}
-.card p{color:#ccc}
-.btn{display:block;text-align:center;background:#ffd21a;color:#111;font-weight:bold;text-decoration:none;padding:12px;border-radius:8px}
-footer{padding:25px 5%;text-align:center;background:#080808;color:#ccc}
-@media(max-width:500px){.hero h1{font-size:30px}input{width:100%}}
+:root {
+  --preto: #151515;
+  --cinza: #222222;
+  --amarelo: #ffd21a;
+  --branco: #ffffff;
+  --verde: #25d366;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: #f5f5f5;
+  color: #222;
+  font-family: Arial, Helvetica, sans-serif;
+}
+header {
+  background: var(--preto);
+  color: var(--branco);
+  padding: 20px;
+  border-bottom: 4px solid var(--amarelo);
+}
+.topo {
+  max-width: 1120px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+  color: var(--amarelo);
+}
+.logo span { color: white; }
+.topo p { margin: 5px 0 0; color: #ddd; font-size: 13px; }
+nav { display: flex; gap: 18px; flex-wrap: wrap; }
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+nav a:hover { color: var(--amarelo); }
+.hero {
+  background: var(--preto);
+  color: white;
+  text-align: center;
+  padding: 55px 20px 60px;
+}
+.hero .selo {
+  color: var(--amarelo);
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.hero h1 {
+  font-size: clamp(30px, 5vw, 48px);
+  margin: 14px auto;
+  max-width: 760px;
+  line-height: 1.12;
+}
+.hero h1 span { color: var(--amarelo); }
+.hero p {
+  color: #ddd;
+  line-height: 1.7;
+  max-width: 570px;
+  margin: 0 auto 25px;
+}
+.botao {
+  display: inline-block;
+  background: var(--amarelo);
+  color: var(--preto);
+  padding: 14px 22px;
+  border-radius: 9px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.botao:hover { filter: brightness(.94); }
+main { max-width: 1120px; margin: auto; padding: 35px 20px 55px; }
+.intro { text-align: center; margin-bottom: 28px; }
+.intro h2 { font-size: 29px; margin-bottom: 8px; }
+.intro p { color: #666; line-height: 1.6; }
+.categorias {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 22px 0 32px;
+}
+.categorias a {
+  background: white;
+  color: #222;
+  border: 1px solid #e5e5e5;
+  border-radius: 25px;
+  padding: 10px 15px;
+  font-size: 13px;
+  text-decoration: none;
+}
+.categorias a:hover { background: var(--amarelo); }
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.produto {
+  background: white;
+  border: 1px solid #e9e9e9;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 18px #00000009;
+  transition: transform .2s, box-shadow .2s;
+}
+.produto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 9px 25px #00000012;
+}
+.figura {
+  min-height: 145px;
+  background: #fff8d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 65px;
+}
+.conteudo {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.etiqueta {
+  color: #7b6500;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.produto h3 { font-size: 18px; margin: 10px 0; }
+.produto p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.55;
+  flex: 1;
+}
+.comprar {
+  display: block;
+  background: var(--preto);
+  color: white;
+  text-align: center;
+  padding: 13px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 12px;
+}
+.comprar:hover { background: #383838; color: var(--amarelo); }
+.aviso {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 32px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #555;
+}
+footer {
+  background: var(--preto);
+  color: #ddd;
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+footer strong { color: var(--amarelo); }
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 18px;
+  z-index: 10;
+  background: var(--verde);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 14px 17px;
+  border-radius: 40px;
+  box-shadow: 0 4px 15px #0003;
+}
+.whatsapp:hover { filter: brightness(.94); }
+@media (max-width: 520px) {
+  header { padding: 17px; }
+  .logo { font-size: 22px; }
+  .hero { padding: 42px 18px; }
+  main { padding: 28px 14px 45px; }
+  .produtos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .figura { min-height: 105px; font-size: 48px; }
+  .conteudo { padding: 12px; }
+  .produto h3 { font-size: 15px; }
+  .produto p { font-size: 12px; }
+  .comprar { font-size: 12px; padding: 12px 5px; }
+  .whatsapp { right: 10px; bottom: 12px; font-size: 13px; padding: 12px 14px; }
+}
 </style>
 </head>
 <body>
+
 <header>
-  <div class="logo">GARIMPO <span>ESPERTO</span></div>
-  <div>Achadinhos que valem a pena</div>
-</header>
-<section class="hero">
-  <h1>Achadinhos incríveis, preços espertos!</h1>
-  <p>Encontre produtos úteis para sua casa e seu dia a dia.</p>
-</section>
-<main>
-  <h2>Nossos achadinhos</h2>
-  <input id="busca" placeholder="Buscar produto..." oninput="filtrar()">
-  <select id="categoria" onchange="filtrar()">
-    <option value="">Todas as categorias</option>
-    <option value="Tecnologia">Tecnologia</option>
-    <option value="Celular">Acessórios para celular</option>
-    <option value="Casa">Casa e cozinha</option>
-  </select>
-  <div class="grid" id="produtos">
-    <article class="card" data-cat="Tecnologia">
-      <div class="icon">🔌</div><h3>Carregador 40W</h3>
-      <p>Carregador com cabo para o dia a dia.</p>
-      <a class="btn" href="https://meli.la/1cVayYi" target="_blank" rel="noopener">Ver oferta</a>
-    </article>
-    <article class="card" data-cat="Tecnologia">
-      <div class="icon">⚡</div><h3>Carregador 67W</h3>
-      <p>Confira a compatibilidade com seu aparelho.</p>
-      <a class="btn" href="https://meli.la/1rNfrX1" target="_blank" rel="noopener">Ver oferta</a>
-    </article>
-    <article class="card" data-cat="Celular">
-      <div class="icon">💡</div><h3>Ring light com tripé</h3>
-      <p>Iluminação para vídeos e fotos.</p>
-      <a class="btn" href="https://meli.la/1YRfJec" target="_blank" rel="noopener">Ver oferta</a>
-    </article>
-    <article class="card" data-cat="Tecnologia">
-      <div class="icon">🎧</div><h3>Fone sem fio</h3>
-      <p>Fone Bluetooth para ouvir suas músicas.</p>
-      <a class="btn" href="https://meli.la/1BVyQm6" target="_blank" rel="noopener">Ver oferta</a>
-    </article>
-    <article class="card" data-cat="Celular">
-      <div class="icon">🤳</div><h3>Tripé e bastão de selfie</h3>
-      <p>Para fotos, vídeos e chamadas.</p>
-      <a class="btn" href="https://meli.la/1yEftdc" target="_blank" rel="noopener">Ver oferta</a>
-    </article>
-    <article class="card" data-cat="Celular">
-      <div class="icon">📱</div><h3>Capinha magnética</h3>
-      <p>Confira o modelo compatível no anúncio.</p>
-      <a class="btn" href="https://meli.la/1oZ1AdK" target="_blank" rel="noopener">Ver oferta</a>
-    </article>
-    <article class="card" data-cat="Celular">
-      <div class="icon">💧</div><h3>Capa impermeável</h3>
-      <p>Confira as instruções de uso no anúncio.</p>
-      <a class="btn" href="https://meli.la/27DGHVg" target="_blank" rel="noopener">Ver oferta</a>
-    </article>
-    <article class="card" data-cat="Casa">
-      <div class="icon">🛏️</div><h3>Jogo de cama</h3>
-      <p>Renove o visual do seu quarto.</p>
-      <a class="btn" href="https://meli.la/1HDyCgr" target="_blank" rel="noopener">Ver oferta</a>
-    </article>
-    <article class="card" data-cat="Casa">
-      <div class="icon">🧣</div><h3>Cobertor</h3>
-      <p>Confira medidas e material no anúncio.</p>
-      <a class="btn" href="https://meli.la/14rGzsF" target="_blank" rel="noopener">Ver oferta</a>
-    </article>
-    <article class="card" data-cat="Casa">
-      <div class="icon">🧂</div><h3>Porta-temperos</h3>
-      <p>Organize os temperos na cozinha.</p>
-      <a class="btn" href="https://meli.la/1qzyyvt" target="_blank" rel="noopener">Ver oferta</a>
-    </article>
+  <div class="topo">
+    <div>
+      <div class="logo">GARIMPO <span>ESPERTO</span></div>
+      <p>Achadinhos que valem a pena!</p>
+    </div>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#ofertas">Ofertas</a>
+      <a href="#sobre">Sobre nós</a>
+    </nav>
   </div>
-  <p id="vazio" style="display:none">Nenhum produto encontrado.</p>
-  <p style="color:#bbb;font-size:13px;margin-top:25px">Alguns links podem gerar comissão para esta loja, sem custo adicional para você. Confira preço e disponibilidade no Mercado Livre.</p>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="selo">✨ Seus próximos achadinhos estão aqui</div>
+  <h1>Boas escolhas começam com um <span>garimpo esperto!</span></h1>
+  <p>Confira nossa seleção de acessórios, itens para casa e produtos que podem facilitar o seu dia a dia.</p>
+  <a class="botao" href="#ofertas">VER OFERTAS ↓</a>
+</section>
+
+<main id="ofertas">
+  <div class="intro">
+    <h2>Ofertas em destaque</h2>
+    <p>Escolha seu achadinho e toque no botão para conferir o produto no Mercado Livre.</p>
+  </div>
+
+  <div class="categorias">
+    <a href="#celular">📱 Celulares</a>
+    <a href="#acessorios">🎧 Acessórios</a>
+    <a href="#casa">🏠 Casa e conforto</a>
+  </div>
+
+  <section class="produtos">
+
+    <article class="produto" id="celular">
+      <div class="figura">🔌</div>
+      <div class="conteudo">
+        <span class="etiqueta">Carregamento</span>
+        <h3>Carregador 40W</h3>
+        <p>Confira os detalhes, a compatibilidade e o preço atualizado deste carregador.</p>
+        <a class="comprar" href="https://meli.la/1cVayYi" target="_blank" rel="noopener noreferrer">CONFERIR OFERTA ↗</a>
+      </div>
+    </article>
+
+    <article class="produto">
+      <div class="figura">⚡</div>
+      <div class="conteudo">
+        <span class="etiqueta">Carregamento</span>
+        <h3>Carregador 67W</h3>
+        <p>Veja as especificações do produto e confirme se é compatível com seu aparelho.</p>
+        <a class="comprar" href="https://meli.la/1rNfrX1" target="_blank" rel="noopener noreferrer">CONFERIR OFERTA ↗</a>
+      </div>
+    </article>
+
+    <article class="produto" id="acessorios">
+      <div class="figura">💡</div>
+      <div class="conteudo">
+        <span class="etiqueta">Iluminação</span>
+        <h3>Ring Light</h3>
+        <p>Uma opção para melhorar a iluminação de fotos, vídeos e chamadas.</p>
+        <a class="comprar" href="https://meli.la/1YRfJec" target="_blank" rel="noopener noreferrer">CONFERIR OFERTA ↗</a>
+      </div>
+    </article>
+
+    <article class="produto">
+      <div class="figura">🎧</div>
+      <div class="conteudo">
+        <span class="etiqueta">Áudio</span>
+        <h3>Fone sem fio</h3>
+        <p>Confira o modelo, os recursos e as informações fornecidas pelo vendedor.</p>
+        <a class="comprar" href="https://meli.la/1BVyQm6" target="_blank" rel="noopener noreferrer">CONFERIR OFERTA ↗</a>
+      </div>
+    </article>
+
+    <article class="produto">
+      <div class="figura">🤳</div>
+      <div class="conteudo">
+        <span class="etiqueta">Acessórios</span>
+        <h3>Tripé e bastão selfie</h3>
+        <p>Veja as características e confira se o acessório atende ao que você procura.</p>
+        <a class="comprar" href="https://meli.la/1yEftdc" target="_blank" rel="noopener noreferrer">CONFERIR OFERTA ↗</a>
+      </div>
+    </article>
+
+    <article class="produto">
+      <div class="figura">📱</div>
+      <div class="conteudo">
+        <span class="etiqueta">Proteção</span>
+        <h3>Capa para celular</h3>
+        <p>Confira o modelo e selecione a versão compatível com seu celular.</p>
+        <a class="comprar" href="https://meli.la/1oZ1AdK" target="_blank" rel="noopener noreferrer">CONFERIR OFERTA ↗</a>
+      </div>
+    </article>
+
+    <article class="produto">
+      <div class="figura">💧</div>
+      <div class="conteudo">
+        <span class="etiqueta">Acessórios</span>
+        <h3>Proteção impermeável para celular</h3>
+        <p>Confira as instruções e os limites de uso descritos pelo fabricante.</p>
+        <a class="comprar" href="https://meli.la/27DGHVg" target="_blank" rel="noopener noreferrer">CONFERIR OFERTA ↗</a>
+      </div>
+    </article>
+
+    <article class="produto" id="casa">
+      <div class="figura">🛏️</div>
+      <div class="conteudo">
+        <span class="etiqueta">Casa e conforto</span>
+        <h3>Jogo de cama</h3>
+        <p>Confira as medidas, o tecido e os itens incluídos no conjunto.</p>
+        <a class="comprar" href="https://meli.la/1HDyCgr" target="_blank" rel="noopener noreferrer">CONFERIR OFERTA ↗</a>
+      </div>
+    </article>
+
+    <article class="produto">
+      <div class="figura">🧣</div>
+      <div class="conteudo">
+        <span class="etiqueta">Casa e conforto</span>
+        <h3>Coberta aconchegante</h3>
+        <p>Veja o tamanho, o material e as opções disponíveis na oferta.</p>
+        <a class="comprar" href="https://meli.la/14rGzsF" target="_blank" rel="noopener noreferrer">CONFERIR OFERTA ↗</a>
+      </div>
+    </article>
+
+    <article class="produto">
+      <div class="figura">🧂</div>
+      <div class="conteudo">
+        <span class="etiqueta">Organização</span>
+        <h3>Porta-temperos</h3>
+        <p>Uma ideia para organizar os temperos e aproveitar melhor sua cozinha.</p>
+        <a class="comprar" href="https://meli.la/1qzyyvt" target="_blank" rel="noopener noreferrer">CONFERIR OFERTA ↗</a>
+      </div>
+    </article>
+
+  </section>
+
+  <div class="aviso" id="sobre">
+    <strong>Sobre a Garimpo Esperto</strong><br>
+    Reunimos sugestões de produtos para ajudar você a descobrir novos achadinhos. Os produtos são vendidos por terceiros no Mercado Livre. Preços, disponibilidade, características e condições podem mudar; confira os detalhes na página do vendedor.<br><br>
+    <strong>Transparência:</strong> alguns links desta página são links de afiliado. Podemos receber uma comissão por compras qualificadas, sem custo adicional para você.
+  </div>
 </main>
-<footer>© <span id="ano"></span> Garimpo Esperto · Achadinhos que valem a pena</footer>
-<script>
-function filtrar(){
- const q=document.getElementById('busca').value.toLowerCase();
- const cat=document.getElementById('categoria').value;
- let total=0;
- document.querySelectorAll('.card').forEach(c=>{
-  const ok=c.innerText.toLowerCase().includes(q)&&(!cat||c.dataset.cat===cat);
-  c.style.display=ok?'block':'none';
-  if(ok)total++;
- });
- document.getElementById('vazio').style.display=total?'none':'block';
-}
-document.getElementById('ano').textContent=new Date().getFullYear();
-</script>
+
+<footer>
+  <strong>GARIMPO ESPERTO</strong><br>
+  Achadinhos que valem a pena!<br>
+  © 2026 Garimpo Esperto. Todos os direitos reservados.
+</footer>
+
+<a class="whatsapp"
+   href="https://wa.me/5582993501981?text=Ol%C3%A1%21%20Encontrei%20a%20Garimpo%20Esperto%20e%20gostaria%20de%20conhecer%20as%20ofertas%21"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Fale conosco pelo WhatsApp">💬 Fale conosco</a>
+
 </body>
 </html>
