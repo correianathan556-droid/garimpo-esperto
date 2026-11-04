@@ -7,7 +7,7 @@
 <meta name="description" content="Garimpo Esperto: achadinhos, acessórios para celular e produtos para sua casa. Confira nossas ofertas!">
 <title>Garimpo Esperto | Achadinhos que valem a pena</title>
 <style>
-:root {
+:root { 
   --preto: #151515;
   --cinza: #222222;
   --amarelo: #ffd21a;
